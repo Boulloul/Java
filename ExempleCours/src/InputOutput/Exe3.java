@@ -8,12 +8,14 @@ public class Exe3 {
 		// TODO Auto-generated method stub
 		File fm=new File("fichierBis.txt");
 		File fc=new File("fichier.txt");
-	    
-        try {
-			FileOutputStream fou=new FileOutputStream(fm);
-			//BufferedOutputStream bout=new BufferedOutputStream(fou);   
+		FileOutputStream fou;
+		FileInputStream fin;
+	    long t=System.currentTimeMillis();
 			
-			FileInputStream fin=new FileInputStream(fc);    
+        try {
+			fou=new FileOutputStream(fm);
+			fin=new FileInputStream(fc); 
+			
             byte buff[]=new byte[8];
             int n=fin.read(buff);
      	    
@@ -21,7 +23,8 @@ public class Exe3 {
             	System.out.print( (char)buff[i]  );
               	fou.write(buff[i]);
             }
-            
+          long f=System.currentTimeMillis()-t;
+          System.out.print("\n Time :"+f);
            
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
