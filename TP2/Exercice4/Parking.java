@@ -5,8 +5,12 @@ public class Parking {
     int PlacesOccupees; 
     int Capacite ; 
     public HashSet<Voiture> infoVoitures = new HashSet<Voiture>();
-    Parking(int size){ this.Capacite = size;} 
-    int places(){ return (this.Capacite - this.PlacesOccupees); }  
+    Parking(int size){ 
+    	this.Capacite = size;
+    	} 
+    int places(){ 
+    	return (this.Capacite - this.PlacesOccupees); 
+    	}  
 	
     synchronized boolean  accept(Voiture myVoit) {
 	if  (this.places() >0 )
