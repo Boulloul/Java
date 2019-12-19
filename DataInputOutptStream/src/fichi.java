@@ -13,13 +13,17 @@ public class fichi {
 			  fos = new FileOutputStream(new File("fichier2.txt"));
 			  fc = fis.getChannel();
 			  fco= fos.getChannel();
+		
 			  int size = (int)fc.size();
 			  ByteBuffer buf = ByteBuffer.allocate(size);
 			  fc.read(buf);
-			  buf.flip();
+			  //buf.flip();
+			  
 			  fco.write(buf);
 			  byte[] tabByte = buf.array();
 			  for(byte b : tabByte)System.out.print((char)b);
+			  
+			  
 		  } catch (FileNotFoundException e) {e.printStackTrace();}
 		  catch (IOException e) {e.printStackTrace();}
 

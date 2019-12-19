@@ -1,9 +1,8 @@
-package Exercice1;
-
-public class CompteDeux extends Thread {
+import java.lang.*;
+public class Compte implements Runnable {
 	int valeur;
 	String nom;
-	public CompteDeux(String name,int val){
+	public Compte(String name,int val){
 	valeur=val;	
 	nom=name;
 	
@@ -34,8 +33,10 @@ public class CompteDeux extends Thread {
 	
 
 	public static void main(String[] args) {
-		 new CompteDeux("TA ",1).start();
-		 new CompteDeux("TB ",1000).start();
+		Runnable r1=new Compte("Thread 1",1);
+		Runnable r2=new Compte("Thread 2",1000);
+		new Thread(r1).start();
+		new Thread(r2).start();
 		
 
 	}
